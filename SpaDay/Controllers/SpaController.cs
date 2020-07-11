@@ -39,7 +39,7 @@ namespace SpaDay.Controllers
         }
 
         [HttpPost]
-        [Route("/spa")]
+        [Route("/spa/menu")]
         public IActionResult Menu(string name, string skintype, string manipedi)
         {
             List<string> facials = new List<string>()
@@ -55,6 +55,17 @@ namespace SpaDay.Controllers
                     appropriateFacials.Add(facials[i]);
                 }
             }
+            List<string> message = new List<string>
+            {
+                "Our manicure is a great way to spend 30 minutes of your day! We use shea butter hand cream and the finest gel polish.",
+                "Relax for 45 minutes in pure luxury! Our massage chairs and experienced nail techs are here to get your feet in shape for sandal season!"
+            };
+
+            ViewBag.message = message;
+            ViewBag.manipedi = manipedi;
+            ViewBag.name = name;
+            ViewBag.skintype = skintype;
+            ViewBag.appropriateFacials = appropriateFacials;
             return View();
         }
 
