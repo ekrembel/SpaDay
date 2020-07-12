@@ -1,7 +1,16 @@
-﻿@{
+﻿@using SpaDay.ViewModel;
+
+@model AddUserViewModel
+
+@if (Model.Username != null || Model.Username != "")
+{
+    <h1>Welcome to our spa, @Model.Username!</h1>
+}
+else
+{
+    <h1>Welcome to our spa!</h1>
 }
 
-<h1>Welcome to our spa, @ViewBag.user.Username!</h1>
 
 <p>
     <a asp-controller="Spa" asp-action="Index">Select Spa Services</a>
